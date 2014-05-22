@@ -18,9 +18,12 @@ Requirements
 
 Getting Started
 
-- git clone <repo>
-- cd repo
-- synth s
+- git clone _repo_
+- cd _repo_
+- synth install -b (installs backend node packages see
+  back/package.json)
+- synth install -f (installs frontend js packages see front/bower.json)
+- synth s (starts the server)
 
 ## Documentation
 
