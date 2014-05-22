@@ -1,0 +1,4 @@
+ul.namerec-timeline
+  li.namerec(ng-repeat="namerec in namerecs")
+    .content {{ namerec.content}}
+    .date {{ namerec.created_at | date:'medium' }}

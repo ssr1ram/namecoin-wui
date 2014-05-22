@@ -1,0 +1,9 @@
+{
+  "name": "namecoin-wui",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.14",
+    "angular-route": "~1.2.14",
+    "bootstrap": "~3.1.1"
+  }
+}
