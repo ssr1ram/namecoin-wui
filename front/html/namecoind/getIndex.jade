@@ -1,0 +1,4 @@
+ul.rec-timeline
+  li.rec(ng-repeat="rec in recs")
+    .content {{ rec.content}}
+    .date {{ rec.created_at | date:'medium' }}

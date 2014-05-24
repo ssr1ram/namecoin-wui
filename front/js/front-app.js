@@ -8,15 +8,15 @@ var dataLoaderRunner = [
 angular.module('namecoin-wui', ['ngRoute'])
 .config(function ($routeProvider, $locationProvider) {
   $routeProvider
-  .when('/namerecs', {
-    templateUrl: '/html/namerecs/getIndex.html',
-    controller: 'namerecsController',
+  .when('/namecoind', {
+    templateUrl: '/html/namecoind/getIndex.html',
+    controller: 'namecoindController',
     resolve: {
       data: dataLoaderRunner
     }
   })
   .otherwise({
-    redirectTo: '/namerecs'
+    redirectTo: '/namecoind'
   });
 
   $locationProvider.html5Mode(true);
