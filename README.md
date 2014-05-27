@@ -23,6 +23,8 @@ Getting Started
 - synth install -b (installs backend node packages see
   back/package.json)
 - synth install -f (installs frontend js packages see front/bower.json)
+- cp back/config.sample.json to  back/config.json and ensure config.json
+  has the appropriate values.
 - synth s (starts the server)
 
 ## Documentation

@@ -1,0 +1,6 @@
+{
+    "host": "ipadrrss or localhost",
+    "port": "8336",
+    "rpcuser": "user",
+    "rpcpassword": "pass"
+}

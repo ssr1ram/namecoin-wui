@@ -1,3 +1,4 @@
 back/node_modules
 front/bower_components
 *.swp
+back/config.json

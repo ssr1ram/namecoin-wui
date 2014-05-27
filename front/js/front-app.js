@@ -15,6 +15,13 @@ angular.module('namecoin-wui', ['ngRoute'])
       data: dataLoaderRunner
     }
   })
+  .when('/namecoind/:action', {
+    templateUrl: '/html/namecoind/getAction.html',
+    controller: 'namecoindActionController',
+    resolve: {
+      data: dataLoaderRunner
+    }
+  })
   .otherwise({
     redirectTo: '/namecoind'
   });
@@ -28,7 +35,7 @@ angular.module('namecoin-wui', ['ngRoute'])
       preloadedData = null;
       return data;
     } else {
-      return $http.get( '/api' + $location.path() ).then(function (res) {
+      return $http.get( '/api/namecoind' ).then(function (res) {
         return res.data;
       });
     }

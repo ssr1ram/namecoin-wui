@@ -1,7 +1,31 @@
+var rpc = require('namecoin-rpc');
+var Q = require('q');
+
+getrpcClient = function(req) {
+    var client = new rpc.Client({
+    host: req.config.host,
+    port: req.config.port,
+    user: req.config.rpcuser,
+    pass: req.config.rpcpassword,
+    timeout: 3000
+    });
+};
+
 exports.getIndex = function (req, res) {
-    var recs = [
-        {"content":"Stuff goes here.","created_at":"2014-05-20T09:30:03.194Z","_id":"537d38417d81eeb7079acab8"},
-        {"content":"More stuff here. ","created_at":"2014-05-17T11:34:41.760Z","_id":"537d38417d81eeb7079acab4"}
-    ];
-    return {"recs": recs};
+    var data = {"config": req.config } ;
+    return {"data": data};
+}
+
+exports.getGetinfo = function (req, res) {
+    var deferred = Q.defer();
+    var client = getrpcClient();
+    client.cmd('getinfo', function(error, value) {
+        if (error) {
+            deferred.reject(new Error(error));
+        } else {
+            console.log(value);
+            deferred.resolve({data: value});
+        }
+    });
+    return deferred.promise;
 }

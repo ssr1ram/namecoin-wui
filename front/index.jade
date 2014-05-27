@@ -1,24 +1,182 @@
 doctype html
 html(ng-app="namecoin-wui")
   head
+    meta(http-equiv='content-type', content='text/html; charset=UTF-8')
     meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title= appName
-
+    title Namecoin WUI
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     for cssFile in cssFiles
       link(rel="stylesheet", href=cssFile)
-
     // Preloaded Data
     script.
       var preloadedData = !{data};
-    for jsFile in jsFiles
-      script(src=jsFile)
   body
-    h1= appName
-
-    div(ng-view)
-
+    // Begin Navbar 
+    .navbar.navbar-static
+      .container
+        .navbar-header
+          a.navbar-brand(href='/')
+            b Namecoin WUI
+          a.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+            span.glyphicon.glyphicon-chevron-down
+    header.masthead
+      .container
+        .row
+          .col-md-6
+            h1
+              a(href='#', title='Scroll down for your viewing pleasure') The Namecoin WUI
+              p.lead The Namecoin Web User Interface
+          .col-md-6
+            .well.pull-right
+              .row
+                .col-sm-6
+                  img(src='/images/Namecoin_Note.png', style='height:100px')
+                .col-sm-6
+                  form
+                    input(type='text', name="host", placeholder='host', readonly='true')
+                    br
+                    input(type='text', name='port', placeholder='rpcuser', readonly='true')
+                    br
+                    input(type='text', name='rpcuser', placeholder='rpcuser', readonly='true')
+    .container
+      .no-gutter.row
+        // left side column 
+        .col-md-2
+          #sidebar.panel.panel-default
+            .panel-heading(style='background-color: #888; color: #fff;') Menu
+            .panel-body
+              ul.nav.nav-stacked
+                li.active
+                  a(href='/namecoind') Using the WUI
+              #accordion2.accordion
+                .accordion-group
+                  .accordion-heading
+                    a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseOne')
+                      | Namecoin
+                  #collapseOne.accordion-body.collapse
+                    .accordion-inner
+                      div(style='margin-left:15px')
+                        a(href='http://namecoin.info', target='ext') home
+                        br
+                        a(href='http://forum.namecoin.info', target='ext') forum
+                        br
+                        a(href='http://wiki.namecoin.info', target='ext') wiki
+                .accordion-group
+                  .accordion-heading
+                    a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseTwo')
+                      | Bitcoin
+                  #collapseTwo.accordion-body.collapse
+                    .accordion-inner
+                      div(style='margin-left:15px')
+                        a(href='http://bitcoin.org', target='ext') home
+                        br
+                        a(href='https://bitcointalk.org/index.php?board=1.0', target='ext') talk
+              hr
+              .col.col-span-12
+                i.icon.icon-facebook
+                | &nbsp; &nbsp;
+                i.icon.icon-twitter
+                | &nbsp; &nbsp;
+                i.icon.icon-linkedin
+                | &nbsp; &nbsp;
+                i.icon.icon-pinterest
+        // mid column
+        .col-md-3
+          #midCol.panel
+            .panel-heading(style='background-color: #555; color: #eee;') Actions
+            .panel-body
+              .well
+                x(href='#backupWallet:') backupWallet
+                br
+                x(href='#BuildMerkleTree:') BuildMerkleTree
+                br
+                x(href='#getAccount:') getAccount
+                br
+                x(href='#getAccountAddress:') getAccountAddress
+                br
+                x(href='#getAddressesByAccount:') getAddressesByAccount
+                br
+                x(href='#getAddressesByAccount:') getAddressesByAccount
+                br
+                x(href='#getAuxBlock:') getAuxBlock
+                br
+                x(href='#getBalance:') getBalance
+                br
+                x(href='#getBlockByCount:') getBlockByCount
+                br
+                x(href='#getBlockCount:') getBlockCount
+                br
+                x(href='#getBlockByHash:') getBlockByHash
+                br
+                x(href='#getBlockNumber:') getBlockNumber
+                br
+                x(href='#getConnectionCount:') getConnectionCount
+                br
+                x(href='#getDifficulty:') getDifficulty
+                br
+                x(href='#getGenerate:') getGenerate
+                br
+                x(href='#getHashesPerSec:') getHashesPerSec
+                br
+                a(href='/namecoind/getInfo') getInfo
+                br
+                x(href='#getNewAddress:') getNewAddress
+                br
+                x(href='#getReceivedByAccount:') getReceivedByAccount
+                br
+                x(href='#getReceivedByAddress:') getReceivedByAddress
+                br
+                x(href='#getTransaction:') getTransaction
+                br
+                x(href='#getWork:') getWork
+                br
+                x(href='#getWorkAux:') getWorkAux
+                br
+                x(href='#help:') help
+                br
+                x(href='#listAccounts:') listAccounts
+                br
+                x(href='#listReceived:') listReceived
+                br
+                x(href='#listReceivedByAccount:') listReceivedByAccount
+                br
+                x(href='#listReceivedByAddress:') listReceivedByAddress
+                br
+                x(href='#listTransactions:') listTransactions
+                br
+                x(href='#move:') move
+                br
+                x(href='#sendFrom:') sendFrom
+                br
+                x(href='#sendMany:') sendMany
+                br
+                x(href='#sendToAddress:') sendToAddress
+                br
+                x(href='#setAccount:') setAccount
+                br
+                x(href='#setGenerate:') setGenerate
+                br
+                x(href='#setTxFee:') setTxFee
+                br
+                x(href='#stop:') stop
+                br
+                x(href='#validateAddress:') validateAddress
+              hr
+        // right content column
+        #content.col-md-7
+          .panel
+            .panel-heading(style='background-color: #111; color: #fff;') Action Panel
+            .panel-body
+              .row(style='min-height:850px')
+                div(ng-view)
+    footer
+      .container
+        .row
+          .col-md-6
+            a(href='https://github.com/ssr1ram/namecoin-wui') view source on github
     if preloadHTML
       script(type="text/ng-template", id="#{preloadHTMLPath}")
         != preloadHTML
+    // script references 
+    for jsFile in jsFiles
+      script(src=jsFile)

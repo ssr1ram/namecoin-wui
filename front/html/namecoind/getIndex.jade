@@ -1,4 +1,10 @@
-ul.rec-timeline
-  li.rec(ng-repeat="rec in recs")
-    .content {{ rec.content}}
-    .date {{ rec.created_at | date:'medium' }}
+h2 Using the WUI.
+| Configuration parameters
+ul
+  li The host, port, rpcuser & rpcpassword parameters are configuration parameters
+  li You need to set the parameters in back/config.json 
+  li See back/config.sample.json for an example
+| Actions
+ul
+  li Choose the action from the Actions list on the left
+  li Set parameters where needed in the main Action Panel and submit

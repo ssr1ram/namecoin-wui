@@ -2,5 +2,8 @@
 ../bower_components/bootstrap/dist/js/bootstrap.js
 ../bower_components/angular/angular.js
 ../bower_components/angular-route/angular-route.js
+scripts.js
 front-app.js
+services/namecoind.js
 controllers/namecoind.js
+controllers/namecoindAction.js

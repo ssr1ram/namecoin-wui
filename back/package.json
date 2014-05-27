@@ -1,10 +1,11 @@
 {
   "name": "namecoin-wui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
-    "synth": "^0.4.15",
-    "bluebird": "^1.0.3"
+    "bluebird": "^1.0.3",
+    "namecoin-rpc": "^2.1.2",
+    "q": "^1.0.1",
+    "synth": "^0.4.15"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
