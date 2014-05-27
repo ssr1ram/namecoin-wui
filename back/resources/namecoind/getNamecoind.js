@@ -18,7 +18,7 @@ exports.getIndex = function (req, res) {
 
 exports.getGetinfo = function (req, res) {
     var deferred = Q.defer();
-    var client = getrpcClient();
+    var client = getrpcClient(req);
     client.cmd('getinfo', function(error, value) {
         if (error) {
             deferred.reject(new Error(error));
