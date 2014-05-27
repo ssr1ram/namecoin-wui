@@ -24,7 +24,6 @@ exports.getGetinfo = function (req, res) {
         if (error) {
             deferred.reject(new Error(error));
         } else {
-            console.log(value);
             deferred.resolve({data: value});
         }
     });
