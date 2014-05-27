@@ -9,6 +9,7 @@ getrpcClient = function(req) {
     pass: req.config.rpcpassword,
     timeout: 3000
     });
+    return client;
 };
 
 exports.getIndex = function (req, res) {
